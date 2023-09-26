@@ -21,19 +21,19 @@ public class Game {
 
         System.out.println("Player 1 will start.");
 
-        while ((player1.getScore() < 40 || player1.getScore() < 40) && turnCount % 2 != 0) {
+        System.out.println("Press ENTER to roll the dice.");
+        scanner.nextLine();
+        playGame();
+    }
+
+    public void playGame() {
+        while ((player1.getScore() < 40 || player2.getScore() < 40) && turnCount % 2 != 0) {
             if (turnCount % 2 == 0) {
                 playerTurn(player1, cup);
             } else {
                 playerTurn(player2, cup);
             }
         }
-        System.out.println("Press ENTER to roll the dice.");
-        scanner.nextLine();
-    }
-
-    public void playGame() {
-
     }
 
     public void displayRules() {
@@ -41,7 +41,9 @@ public class Game {
     }
 
     public void playerTurn(Player player, Cup cup) {
-
+        cup.setRollSum();
+        player.setScore(cup.getRollSum);
+        
     }
 
     public void displayScoreboard() {
