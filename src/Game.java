@@ -81,7 +81,7 @@ public class Game {
 
     public void doubleOnes(Player player){
         System.out.println("Oh no - you lost all your points.");
-        Player.resetScore();
+        player.resetScore();
     }
 
 }
