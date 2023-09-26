@@ -42,7 +42,13 @@ public class Game {
 
     public void playerTurn(Player player, Cup cup) {
         cup.setRollSum();
+        
+        System.out.println("Die 1: " + cup.getDie1());
+        System.out.println("Die 2: " + cup.getDie2());
+
         player.setScore(cup.getRollSum);
+
+        displayScoreboard();
         
     }
 
