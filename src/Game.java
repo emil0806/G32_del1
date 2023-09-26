@@ -42,18 +42,28 @@ public class Game {
     }
 
     public void playerTurn(Player player, Cup cup) {
-        System.out.println("Press ENTER to roll dice");
+        System.out.println(player.getPlayerName() + ", press ENTER to roll dice");
         scanner.nextLine();
         cup.setRollSum();
 
         System.out.println("Die 1: " + cup.getDie1());
         System.out.println("Die 2: " + cup.getDie2());
+        System.out.println("The sum of the two dice: " + cup.getRollSum());
 
         player.setScore(cup.getRollSum());
 
         displayScoreboard();
 
         turnCount++;
+
+        if (turnCount % 2 == 0 ){
+            if(player1.getScore() >= 40){
+                System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
+            } else if(player2.getScore() >= 40){
+                System.out.println("Congratz, " + player2.getPlayerName() + " won the game!");
+            }
+            
+        }
 
     }
 
