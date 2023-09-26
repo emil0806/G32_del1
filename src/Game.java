@@ -45,6 +45,7 @@ public class Game {
     }
 
     public void displayScoreboard() {
-
+        System.out.println(player1.getPlayerName() + ": " + player1.getScore());
+        System.out.println(player2.getPlayerName() + ": " + player2.getScore());
     }
 }
