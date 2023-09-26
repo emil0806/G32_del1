@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Game {
-    private Player player1 = new Player();
-    private Player player2 = new Player();
+    private Player player1 = new Player("", 0);
+    private Player player2 = new Player("", 0);
     private Cup cup = new Cup();
     private int turnCount = 0;
 
@@ -21,6 +21,7 @@ public class Game {
 
         System.out.println("Player 1 will start.");
         System.out.println("Press ENTER to roll the dice.");
+        scanner.nextLine();
     }
 
     public void playGame() {
