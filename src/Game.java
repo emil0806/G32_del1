@@ -21,7 +21,6 @@ public class Game {
         player2.setPlayerName(scanner.nextLine());
 
         int coinFlip = (int) Math.floor(Math.random() * (2 - 1 + 1) + 1);
-
         if (coinFlip == 1) {
             System.out.println(player1.getPlayerName() + " won the coin flip.");
             playGame(player1, player2);
@@ -62,13 +61,13 @@ public class Game {
 
         turnCount++;
 
-        if (turnCount % 2 == 0 ){
-            if(player1.getScore() >= 40){
+        if (turnCount % 2 == 0) {
+            if (player1.getScore() >= 40) {
                 System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
-            } else if(player2.getScore() >= 40){
+            } else if (player2.getScore() >= 40) {
                 System.out.println("Congratz, " + player2.getPlayerName() + " won the game!");
             }
-            
+
         }
 
     }
