@@ -55,11 +55,11 @@ public class Game {
         System.out.println("Die 2: " + cup.getDie2());
         System.out.println("The sum of the two dice: " + cup.getRollSum());
 
-        if(cup.getRollSum() == 2){
+        if (cup.getRollSum() == 2) {
             doubleOnes(player);
-        } else{
+        } else {
             player.setScore(cup.getRollSum());
-        }   
+        }
 
         displayScoreboard();
 
@@ -83,7 +83,7 @@ public class Game {
         System.out.println(player2.getPlayerName() + ": " + player2.getScore());
     }
 
-    public void doubleOnes(Player player){
+    public void doubleOnes(Player player) {
         System.out.println("Oh no - you lost all your points.");
         player.resetScore();
     }
