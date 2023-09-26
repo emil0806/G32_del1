@@ -20,12 +20,18 @@ public class Game {
         System.out.print("Please enter player 2 name: ");
         player2.setPlayerName(scanner.nextLine());
 
-        System.out.println("Player 1 will start.");
+        int coinFlip = (int) Math.floor(Math.random() * (2 - 1 + 1) + 1);
 
-        playGame();
+        if (coinFlip == 1) {
+            System.out.println(player1.getPlayerName() + " won the coin flip.");
+            playGame(player1, player2);
+        } else {
+            System.out.println(player2.getPlayerName() + " won the coin flip.");
+            playGame(player2, player1);
+        }
     }
 
-    public void playGame() {
+    public void playGame(Player player1, Player player2) {
         while ((player1.getScore() < 40 || player2.getScore() < 40)) {
             if (turnCount % 2 == 0 && (player1.getScore() >= 40 || player2.getScore() >= 40)) {
                 break;
