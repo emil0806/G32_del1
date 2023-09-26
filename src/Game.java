@@ -78,4 +78,10 @@ public class Game {
         System.out.println(player1.getPlayerName() + ": " + player1.getScore());
         System.out.println(player2.getPlayerName() + ": " + player2.getScore());
     }
+
+    public void doubleOnes(Player player){
+        System.out.println("Oh no - you lost all your points.");
+        Player.resetScore();
+    }
+
 }
