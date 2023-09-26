@@ -31,7 +31,8 @@ public class Game {
     }
 
     public void playGame(Player player1, Player player2) {
-        while ((player1.getScore() < 40 || player2.getScore() < 40) || cup.getDie1() == cup.getDie2()) {
+        while ((player1.getScore() < 40 || player2.getScore() < 40)
+                || (cup.getDie1() == cup.getDie2() && cup.getRollSum() > 2)) {
             if (turnCount % 2 == 0 && (player1.getScore() >= 40 || player2.getScore() >= 40)
                     && (cup.getDie1() != cup.getDie2())) {
                 break;
@@ -68,7 +69,7 @@ public class Game {
 
         turnCount++;
 
-        if (turnCount % 2 == 0 && (cup.getDie1() != cup.getDie2() && cup.getRollSum() > 2)) {
+        if (turnCount % 2 == 0) {
             if (player1.getScore() >= 40 && player1.getScore() > player2.getScore()) {
                 System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
             } else if (player2.getScore() >= 40 && player2.getScore() > player1.getScore()) {
