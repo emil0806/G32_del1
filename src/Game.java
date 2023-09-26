@@ -55,7 +55,11 @@ public class Game {
         System.out.println("Die 2: " + cup.getDie2());
         System.out.println("The sum of the two dice: " + cup.getRollSum());
 
-        player.setScore(cup.getRollSum());
+        if(cup.getRollSum() == 2){
+            doubleOnes(player);
+        } else{
+            player.setScore(cup.getRollSum());
+        }   
 
         displayScoreboard();
 
@@ -66,7 +70,7 @@ public class Game {
                 System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
             } else if (player2.getScore() >= 40 && player2.getScore() > player1.getScore()) {
                 System.out.println("Congratz, " + player2.getPlayerName() + " won the game!");
-            } else if (player1.getScore() == player2.getScore()) {
+            } else if (player1.getScore() == player2.getScore() && player1.getScore() >= 40) {
                 System.out.println("It is tie!");
             }
 
