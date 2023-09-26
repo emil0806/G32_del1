@@ -17,7 +17,7 @@ class Player {
     }
 
     public void setScore(int currentrollSum) {
-        this.score = currentrollSum;
+        this.score += currentrollSum;
     }
 
     public int getScore() {
