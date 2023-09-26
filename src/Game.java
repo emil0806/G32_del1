@@ -14,21 +14,22 @@ public class Game {
         System.out.println("Press ENTER to start the game");
         scanner.nextLine();
 
-        System.out.println("Please enter player 1 name: ");
+        System.out.print("Please enter player 1 name: ");
         player1.setPlayerName(scanner.nextLine());
-        System.out.println("Please enter player 2 name: ");
+
+        System.out.print("Please enter player 2 name: ");
         player2.setPlayerName(scanner.nextLine());
 
         System.out.println("Player 1 will start.");
 
-        System.out.println("Press ENTER to roll the dice.");
-        scanner.nextLine();
         playGame();
     }
 
     public void playGame() {
-        while ((player1.getScore() < 40 || player2.getScore() < 40) && turnCount % 2 != 0) {
-            if (turnCount % 2 == 0) {
+        while ((player1.getScore() < 40 || player2.getScore() < 40)) {
+            if (turnCount % 2 == 0 && (player1.getScore() >= 40 || player2.getScore() >= 40)) {
+                break;
+            } else if (turnCount % 2 == 0) {
                 playerTurn(player1, cup);
             } else {
                 playerTurn(player2, cup);
@@ -41,15 +42,19 @@ public class Game {
     }
 
     public void playerTurn(Player player, Cup cup) {
+        System.out.println("Press ENTER to roll dice");
+        scanner.nextLine();
         cup.setRollSum();
-        
+
         System.out.println("Die 1: " + cup.getDie1());
         System.out.println("Die 2: " + cup.getDie2());
 
-        player.setScore(cup.getRollSum);
+        player.setScore(cup.getRollSum());
 
         displayScoreboard();
-        
+
+        turnCount++;
+
     }
 
     public void displayScoreboard() {
