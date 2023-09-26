@@ -62,10 +62,12 @@ public class Game {
         turnCount++;
 
         if (turnCount % 2 == 0) {
-            if (player1.getScore() >= 40) {
+            if (player1.getScore() >= 40 && player1.getScore() > player2.getScore()) {
                 System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
-            } else if (player2.getScore() >= 40) {
+            } else if (player2.getScore() >= 40 && player2.getScore() > player1.getScore()) {
                 System.out.println("Congratz, " + player2.getPlayerName() + " won the game!");
+            } else if (player1.getScore() == player2.getScore()) {
+                System.out.println("It is tie!");
             }
 
         }
