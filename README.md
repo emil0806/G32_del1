@@ -7,9 +7,9 @@ Welcome to the best dice game in the world.
 Group 32: <br />
 Julius <br />
 Emil <br />
-William <br />
 Mikkel <br />
 Rachiid <br />
+William <br />
 ## Description
 
 It is a fun game.
