@@ -10,7 +10,7 @@ public class Game {
 
     public void startGame() {
         System.out.println("Welcome to the best dice game in the World!");
-
+        displayRules();
         System.out.println("Press ENTER to start the game");
         scanner.nextLine();
 
@@ -29,7 +29,7 @@ public class Game {
     }
 
     public void displayRules() {
-
+        System.out.println("Get 40 or more points to win the game");
     }
 
     public void playerTurn(Player player, Cup cup) {
