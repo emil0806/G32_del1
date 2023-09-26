@@ -20,6 +20,14 @@ public class Game {
         player2.setPlayerName(scanner.nextLine());
 
         System.out.println("Player 1 will start.");
+
+        while ((player1.getScore() < 40 || player1.getScore() < 40) && turnCount % 2 != 0) {
+            if (turnCount % 2 == 0) {
+                playerTurn(player1, cup);
+            } else {
+                playerTurn(player2, cup);
+            }
+        }
         System.out.println("Press ENTER to roll the dice.");
         scanner.nextLine();
     }
