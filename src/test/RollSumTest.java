@@ -4,6 +4,9 @@ import game.*;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+/* Test of cup and die classes
+ * Simulate 1000 rolls with two dice, and then testing the sum of the rolls.
+*/
 public class RollSumTest {
     private Cup cup = new Cup();
     private int[] values = new int[11];
@@ -14,8 +17,9 @@ public class RollSumTest {
     @Test
     public void testRollSum() {
         for (int i = 0; i < 1000; i++) {
+            // Rolls dice
             cup.setRollSum();
-
+            // Checks sum of dice
             switch (cup.getRollSum()) {
                 case 2:
                     values[0] += 1;
@@ -54,7 +58,9 @@ public class RollSumTest {
         }
 
         System.out.println("Test roll sum for 1000 rolls: ");
-
+        /*
+         * Calculate the frequency for each sum
+         */
         for (int i = 0; i < values.length; i++) {
             double frequencyCalculator = (double) ((values[i] / 1000.0) * 100.0);
             frequency[i] = Math.round(frequencyCalculator * 100.00) / 100.00;
@@ -62,12 +68,16 @@ public class RollSumTest {
             System.out.println("Frequency of " + (i + 2) + ": " + frequency[i] + "%");
             System.out.println("Expected frequency: " + expectedFrequency[i] + "%");
         }
+        // Comparing the frequency with the expected frequency for each sum
         for (int i = 0; i < values.length; i++) {
             assertEquals(expectedFrequency[i], frequency[i], 3.0);
         }
 
     }
 
+    /*
+     * Same test as above, but with 100000 rolls.
+     */
     @Test
     public void testRollSumExtra() {
         for (int i = 0; i < 100000; i++) {
