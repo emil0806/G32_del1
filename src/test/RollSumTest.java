@@ -1,6 +1,8 @@
 package test;
 
 import game.*;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class RollSumTest {
     private Cup cup = new Cup();
@@ -9,6 +11,7 @@ public class RollSumTest {
     private double[] expectedFrequency = new double[] { 2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 13.89, 11.11, 8.33, 5.56,
             2.78 };
 
+    @Test
     public void testRollSum() {
         for (int i = 0; i < 100000; i++) {
             cup.setRollSum();
@@ -57,6 +60,10 @@ public class RollSumTest {
             System.out.println("Frequency of " + (i + 2) + ": " + frequency[i] + "%");
             System.out.println("Expected frequency: " + expectedFrequency[i] + "%");
         }
+        for (int i = 0; i < values.length; i++) {
+            assertEquals(expectedFrequency[i], frequency[i], 1.0);
+        }
+
     }
 
 }
