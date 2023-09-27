@@ -39,8 +39,12 @@ public class Game {
                     && (cup.getDie1() != cup.getDie2())) {
                 break;
             } else if (turnCount % 2 == 0) {
+                System.out.println(player1.getPlayerName() + ", press ENTER to roll dice");
+                scanner.nextLine();
                 playerTurn(player1, cup);
             } else {
+                System.out.println(player2.getPlayerName() + ", press ENTER to roll dice");
+                scanner.nextLine();
                 playerTurn(player2, cup);
             }
         }
@@ -51,8 +55,6 @@ public class Game {
     }
 
     public void playerTurn(Player player, Cup cup) {
-        System.out.println(player.getPlayerName() + ", press ENTER to roll dice");
-        scanner.nextLine();
         cup.setRollSum();
 
         System.out.println("Die 1: " + cup.getDie1());
@@ -79,9 +81,7 @@ public class Game {
             } else if (player1.getScore() == player2.getScore() && player1.getScore() >= 40) {
                 System.out.println("It is tie!");
             }
-
         }
-
     }
 
     public void displayScoreboard() {
