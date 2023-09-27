@@ -13,7 +13,7 @@ public class RollSumTest {
 
     @Test
     public void testRollSum() {
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000; i++) {
             cup.setRollSum();
 
             switch (cup.getRollSum()) {
@@ -53,6 +53,64 @@ public class RollSumTest {
             }
         }
 
+        System.out.println("Test roll sum for 1000 rolls: ");
+
+        for (int i = 0; i < values.length; i++) {
+            double frequencyCalculator = (double) ((values[i] / 1000.0) * 100.0);
+            frequency[i] = Math.round(frequencyCalculator * 100.00) / 100.00;
+            System.out.println("Total of " + (i + 2) + ": " + values[i]);
+            System.out.println("Frequency of " + (i + 2) + ": " + frequency[i] + "%");
+            System.out.println("Expected frequency: " + expectedFrequency[i] + "%");
+        }
+        for (int i = 0; i < values.length; i++) {
+            assertEquals(expectedFrequency[i], frequency[i], 3.0);
+        }
+
+    }
+
+    @Test
+    public void testRollSumExtra() {
+        for (int i = 0; i < 100000; i++) {
+            cup.setRollSum();
+
+            switch (cup.getRollSum()) {
+                case 2:
+                    values[0] += 1;
+                    break;
+                case 3:
+                    values[1] += 1;
+                    break;
+                case 4:
+                    values[2] += 1;
+                    break;
+                case 5:
+                    values[3] += 1;
+                    break;
+                case 6:
+                    values[4] += 1;
+                    break;
+                case 7:
+                    values[5] += 1;
+                    break;
+                case 8:
+                    values[6] += 1;
+                    break;
+                case 9:
+                    values[7] += 1;
+                    break;
+                case 10:
+                    values[8] += 1;
+                    break;
+                case 11:
+                    values[9] += 1;
+                    break;
+                case 12:
+                    values[10] += 1;
+                    break;
+            }
+        }
+        System.out.println("");
+        System.out.println("Test roll sum for 100000 rolls: ");
         for (int i = 0; i < values.length; i++) {
             double frequencyCalculator = (double) ((values[i] / 100000.0) * 100.0);
             frequency[i] = Math.round(frequencyCalculator * 100.00) / 100.00;
