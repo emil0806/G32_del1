@@ -73,6 +73,8 @@ public class Game {
 
         displayScoreboard();
 
+        player.setLastRoll(cup.getRollSum());
+
         turnCount++;
 
         if (turnCount % 2 == 0 && (cup.getDie1() != cup.getDie2())) {
