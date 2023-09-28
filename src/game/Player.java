@@ -4,6 +4,7 @@ public class Player {
 
     private String name;
     private int score;
+    private int lastRoll;
 
     public Player(String name, int score) {
         this.name = name;
@@ -18,8 +19,8 @@ public class Player {
         return this.name;
     }
 
-    public void setScore(int currentrollSum) {
-        this.score += currentrollSum;
+    public void setScore(int currentRollSum) {
+        this.score += currentRollSum;
     }
 
     public int getScore() {
@@ -28,5 +29,13 @@ public class Player {
 
     public void resetScore() {
         this.score = 0;
+    }
+
+    public void setLastRoll(int currentRollSum) {
+        this.lastRoll = currentRollSum;
+    }
+
+    public int getLastRoll() {
+        return lastRoll;
     }
 }

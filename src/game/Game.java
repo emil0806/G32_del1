@@ -99,7 +99,19 @@ public class Game {
     public void extraTurn(Player player, Cup cup) {
         player.setScore(cup.getRollSum());
 
+        if (cup.getRollSum() == 12) {
+            sixesInARow(player, cup);
+        }
+
         System.out.println("Two of a kind, you get a extra turn");
         turnCount -= 1;
+    }
+
+    public void sixesInARow(Player player, Cup cup) {
+        if (player.getLastRoll() == cup.getRollSum()) {
+            System.out.println("Double sixes, you are a lucky star!");
+            System.out.println("Congratz, " + player.getPlayerName() + " won the game!");
+            System.exit(0);
+        }
     }
 }
