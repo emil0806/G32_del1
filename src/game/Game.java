@@ -12,10 +12,12 @@ public class Game {
 
     public void startGame() {
         System.out.println("");
-        ;
+
         System.out.println("Welcome to the best dice game in the World!");
         System.out.println("");
+
         displayRules();
+
         System.out.println("Press ENTER to start the game");
         scanner.nextLine();
 
@@ -37,9 +39,9 @@ public class Game {
 
     public void playGame(Player player1, Player player2) {
         while ((player1.getScore() < 40 || player2.getScore() < 40)
-                || (cup.getDie1() == cup.getDie2() && cup.getRollSum() > 2)) {
-            if (turnCount % 2 == 0 && (player1.getScore() >= 40 || player2.getScore() >= 40)
-                    && (cup.getDie1() != cup.getDie2())) {
+                || (cup.getDie1() != cup.getDie2() && cup.getRollSum() > 2)) {
+            if ((player1.getScore() >= 40 || player2.getScore() >= 40)
+                    && (cup.getDie1() == cup.getDie2())) {
                 break;
             } else if (turnCount % 2 == 0) {
                 System.out.println(player1.getPlayerName() + ", press ENTER to roll dice");
@@ -58,6 +60,7 @@ public class Game {
         System.out.println("1) A player loses all his point if the player rolls double ones (snake eyes)");
         System.out.println("2) A player gets an extra turn if the player rolls two of a kind, not double ones");
         System.out.println("3) A player can win the game by rolling double sixes two times in a row");
+        System.out.println("4) A player has to roll two of a kind when or after achieving 40 point to win the game");
     }
 
     public void playerTurn(Player player, Cup cup) {
@@ -81,13 +84,9 @@ public class Game {
 
         turnCount++;
 
-        if (turnCount % 2 == 0 && (cup.getDie1() != cup.getDie2())) {
-            if (player1.getScore() >= 40 && player1.getScore() > player2.getScore()) {
-                System.out.println("Congratz, " + player1.getPlayerName() + " won the game!");
-            } else if (player2.getScore() >= 40 && player2.getScore() > player1.getScore()) {
-                System.out.println("Congratz, " + player2.getPlayerName() + " won the game!");
-            } else if (player1.getScore() == player2.getScore() && player1.getScore() >= 40) {
-                System.out.println("It is tie!");
+        if (cup.getDie1() == cup.getDie2()) {
+            if (player.getScore() >= 40) {
+                System.out.println("Congratz, " + player.getPlayerName() + " won the game!");
             }
         }
     }
@@ -108,8 +107,10 @@ public class Game {
         if (cup.getRollSum() == 12) {
             sixesInARow(player, cup);
         }
+        if (player.getScore() < 40) {
+            System.out.println("Two of a kind, you get a extra turn");
+        }
 
-        System.out.println("Two of a kind, you get a extra turn");
         turnCount -= 1;
     }
 
