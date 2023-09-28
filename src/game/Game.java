@@ -52,6 +52,8 @@ public class Game {
 
     public void displayRules() {
         System.out.println("Get 40 or more points to win the game");
+        System.out.println("1) A player loses all his point if the player rolls double ones (snake eyes)");
+        System.out.println("2) A player gets an extra turn if the player rolls two of a kind, not double ones");
     }
 
     public void playerTurn(Player player, Cup cup) {
