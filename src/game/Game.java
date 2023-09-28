@@ -11,7 +11,10 @@ public class Game {
     private Scanner scanner = new java.util.Scanner(System.in);
 
     public void startGame() {
+        System.out.println("");
+        ;
         System.out.println("Welcome to the best dice game in the World!");
+        System.out.println("");
         displayRules();
         System.out.println("Press ENTER to start the game");
         scanner.nextLine();
@@ -54,6 +57,7 @@ public class Game {
         System.out.println("Get 40 or more points to win the game");
         System.out.println("1) A player loses all his point if the player rolls double ones (snake eyes)");
         System.out.println("2) A player gets an extra turn if the player rolls two of a kind, not double ones");
+        System.out.println("3) A player can win the game by rolling double sixes two times in a row");
     }
 
     public void playerTurn(Player player, Cup cup) {
