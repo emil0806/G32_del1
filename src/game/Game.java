@@ -7,6 +7,7 @@ public class Game {
     private Player player2 = new Player("", 0);
     private Cup cup = new Cup();
     private int turnCount = 0;
+    private int coinFlip = (int) Math.floor(Math.random() * (2 - 1 + 1) + 1);
 
     private Scanner scanner = new java.util.Scanner(System.in);
 
@@ -27,7 +28,6 @@ public class Game {
         System.out.print("Please enter player 2 name: ");
         player2.setPlayerName(scanner.nextLine());
 
-        int coinFlip = (int) Math.floor(Math.random() * (2 - 1 + 1) + 1);
         if (coinFlip == 1) {
             System.out.println(player1.getPlayerName() + " won the coin flip.");
             playGame(player1, player2);
@@ -39,11 +39,8 @@ public class Game {
 
     public void playGame(Player player1, Player player2) {
         while ((player1.getScore() < 40 || player2.getScore() < 40)
-                || (cup.getDie1() != cup.getDie2() && cup.getRollSum() > 2)) {
-            if ((player1.getScore() >= 40 || player2.getScore() >= 40)
-                    && (cup.getDie1() == cup.getDie2())) {
-                break;
-            } else if (turnCount % 2 == 0) {
+                || (cup.getDie1() != cup.getDie2() || cup.getRollSum() == 2)) {
+            if (turnCount % 2 == 0) {
                 System.out.println(player1.getPlayerName() + ", press ENTER to roll dice");
                 scanner.nextLine();
                 playerTurn(player1, cup);
@@ -87,6 +84,7 @@ public class Game {
         if (cup.getDie1() == cup.getDie2()) {
             if (player.getScore() >= 40) {
                 System.out.println("Congratz, " + player.getPlayerName() + " won the game!");
+                System.exit(0);
             }
         }
     }
